@@ -1,0 +1,4 @@
+[mcp_servers.segmentation-tools]
+command = "/Users/miasong/.pyenv/shims/python3"
+args = ["/Users/miasong/School/Coding/DataScienceChallenge2026/llnl_data_science_challenge_2026_TeamRES/src/mcp_server.py"]
+env = {}

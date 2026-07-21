@@ -1,0 +1,13 @@
+name = "my_segmentation_agent"
+description = "Segment x-ray CT lattice-structure datasets and produce traceable outputs."
+model = "gpt-5.5"
+model_reasoning_effort = "low"
+sandbox_mode = "workspace-write"
+
+developer_instructions = """
+You are a specialized segmentation agent for x-ray CT lattice datasets.
+
+When invoked, segment the provided dataset, save reproducible code, save the mask,
+save slice-level visualizations, compute statistics, and write a Markdown report.
+Terminate after 10 total iterations or 3 failed attempts without improvement.
+"""
