@@ -18,7 +18,7 @@ By the end of the challenge, participants should understand how to move from sta
 
 ## Repository Contents
 
-- `DATA_SCIENCE_CHALLENGE_2026.md/pdf` - main challenge instructions
+- `README.md/DATA_SCIENCE_CHALLENGE_2026.pdf` - main challenge instructions
 - `src/` - starter Python code for MCP tools and skeletonization
 - `data/` - sample CT, mesh, and lattice structure data
 - `images/` - example visualizations used in the challenge materials
