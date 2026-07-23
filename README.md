@@ -4,6 +4,75 @@
 
 This repository contains materials for the Data Science Challenge 2026 at Lawrence Livermore National Laboratory (LLNL). The challenge is part of the 2026 Data Science Summer Institute (DSSI) and Data Science Challenge (DSC) and focuses on applying agentic AI to a materials science workflow.
 
+## Multi-Agent Lattice CT Inspection Application
+
+The repository is being extended as a monorepo with an independently runnable
+Next.js frontend and FastAPI backend. The current Phase 1 foundation establishes
+the service boundaries and local development environment while preserving the
+original challenge code and data.
+
+```text
+Browser ──> Next.js web service ──> FastAPI analysis service
+   └──────── future direct upload ──> Google Cloud Storage
+                                          │
+                               deterministic scientific Python
+```
+
+### Current functionality
+
+- strict TypeScript Next.js App Router base application
+- responsive scientific foundation landing page
+- independently runnable FastAPI service with `/health` and OpenAPI
+- environment-variable examples with no credentials
+- explicit boundary around existing `src/` scientific and MCP code
+- documentation and contribution conventions for a four-person team
+
+This phase contains no real CT analysis, agent orchestration, LLM connection, or
+cloud resource creation.
+
+### Local frontend
+
+```bash
+nvm install
+nvm use
+npm install
+cp apps/web/.env.example apps/web/.env.local
+npm run dev:web
+```
+
+The frontend is available at `http://localhost:3000`.
+
+### Local backend
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r services/analysis-api/requirements-dev.txt
+cp services/analysis-api/.env.example services/analysis-api/.env
+npm run dev:api
+```
+
+The API health endpoint is `http://localhost:8000/health`; local OpenAPI docs
+are at `http://localhost:8000/docs`.
+
+### Phase 1 checks
+
+```bash
+npm run lint:web
+npm run typecheck:web
+npm run test:web
+npm run build:web
+cd services/analysis-api && python -m pytest -q
+```
+
+Docker Compose and Cloud Run deployment are planned for Phase 6 after the API
+contracts and dashboard features stabilize. Demo mode will not require the real
+CT dataset, Google Cloud credentials, an LLM key, or GPU access.
+
+Read [Architecture](docs/ARCHITECTURE.md),
+[Team Integration Guide](docs/TEAM_INTEGRATION_GUIDE.md), and
+[Contributing](CONTRIBUTING.md) before extending shared files.
+
 ## Goal
 
 The goal of this challenge is to build an AI-assisted workflow for analyzing X-ray CT data from additively manufactured lattice structures. Participants use coding agents, Model Context Protocol (MCP) tools, skills, and subagents to automate steps such as:

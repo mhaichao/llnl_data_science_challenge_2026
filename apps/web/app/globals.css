@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+:root {
+  --canvas: #f3f7fb;
+  --surface: #ffffff;
+  --ink: #142033;
+  --muted: #64748b;
+  --line: #dce5ef;
+  --navy: #0b1730;
+  --blue: #2563eb;
+  --cyan: #18a6b8;
+  --green: #0f8b68;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--canvas);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 75% 0%, rgb(37 99 235 / 8%), transparent 32rem),
+    var(--canvas);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 290px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.rail {
+  padding: 2rem 1.6rem;
+  color: #e8eff8;
+  background: linear-gradient(165deg, var(--navy), #102846);
+  border-right: 1px solid #213759;
+}
+
+.mark {
+  display: grid;
+  width: 2.7rem;
+  height: 2.7rem;
+  place-items: center;
+  margin-bottom: 1.2rem;
+  color: #7dd3fc;
+  font-size: 1.8rem;
+  border: 1px solid #315578;
+  border-radius: 0.8rem;
+  background: rgb(255 255 255 / 5%);
+}
+
+.rail-kicker,
+.eyebrow,
+.panel-kicker {
+  margin: 0;
+  color: #7dd3fc;
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.rail-title {
+  margin: 0.2rem 0 0;
+  font-size: 1.25rem;
+  font-weight: 760;
+}
+
+.rail-rule {
+  height: 1px;
+  margin: 1.6rem 0;
+  background: #294462;
+}
+
+.status-pill,
+.state {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.58rem;
+  border: 1px solid currentcolor;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.status-pill {
+  color: #8ee8c8;
+  background: rgb(15 139 104 / 12%);
+}
+
+.rail-copy {
+  max-width: 14rem;
+  margin-top: 1rem;
+  color: #aebdd0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.content {
+  width: min(1100px, calc(100% - 4rem));
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 6.5rem) 0;
+}
+
+.eyebrow {
+  color: var(--blue);
+}
+
+h1 {
+  max-width: 820px;
+  margin: 0.55rem 0 0;
+  font-size: clamp(2.35rem, 5vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.lede {
+  max-width: 760px;
+  margin: 1.35rem 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.65;
+}
+
+.notice {
+  display: flex;
+  gap: 0.65rem 1rem;
+  align-items: center;
+  margin: 2rem 0 1rem;
+  padding: 0.8rem 1rem;
+  color: #27466f;
+  background: #eaf2ff;
+  border: 1px solid #cbdcfa;
+  border-radius: 0.8rem;
+  font-size: 0.84rem;
+}
+
+.foundation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.foundation-card,
+.boundary-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  box-shadow: 0 12px 35px rgb(15 35 65 / 5%);
+}
+
+.foundation-card {
+  padding: 1.15rem;
+}
+
+.card-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 730;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.foundation-card p {
+  margin: 1.25rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 720;
+}
+
+.state {
+  color: #2665b8;
+  background: #eff5ff;
+  font-size: 0.65rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.state-ready,
+.state-preserved {
+  color: var(--green);
+  background: #eaf8f3;
+}
+
+.boundary-panel {
+  margin-top: 0.85rem;
+  padding: 1.35rem;
+}
+
+.panel-kicker {
+  color: var(--cyan);
+}
+
+.boundary-panel h2 {
+  max-width: 650px;
+  margin: 0.35rem 0 1.4rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+  letter-spacing: -0.025em;
+}
+
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.flow span:nth-child(odd) {
+  padding: 0.45rem 0.65rem;
+  color: #244260;
+  background: #f0f5fa;
+  border-radius: 0.5rem;
+  font-weight: 670;
+}
+
+@media (max-width: 760px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .rail {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.8rem;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .mark,
+  .rail-copy,
+  .rail-rule {
+    display: none;
+  }
+
+  .content {
+    width: min(100% - 2rem, 1100px);
+    padding: 3rem 0;
+  }
+
+  .foundation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .notice {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

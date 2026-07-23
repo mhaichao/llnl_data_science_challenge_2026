@@ -1,0 +1,24 @@
+{
+  "name": "lattice-ct-inspection",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/web"
+  ],
+  "engines": {
+    "node": "^20.19.0 || >=22.13.0"
+  },
+  "overrides": {
+    "postcss": "8.5.22",
+    "sharp": "0.35.3"
+  },
+  "scripts": {
+    "dev:web": "npm run dev --workspace @lattice-inspect/web",
+    "build:web": "npm run build --workspace @lattice-inspect/web",
+    "lint:web": "npm run lint --workspace @lattice-inspect/web",
+    "typecheck:web": "npm run typecheck --workspace @lattice-inspect/web",
+    "test:web": "npm run test --workspace @lattice-inspect/web",
+    "dev:api": "cd services/analysis-api && python -m uvicorn app.main:app --reload --port 8000",
+    "test:api": "cd services/analysis-api && python -m pytest -q"
+  }
+}
